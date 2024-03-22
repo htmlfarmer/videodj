@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage Calling Python Script</title>
+</head>
+<body>
+
+<h1>Simple Webpage Calling Python Script</h1>
+
+<button onclick="callPythonScript()">Call Python Script</button>
+
+<div id="output"></div>
+
+<script>
+    function callPythonScript() {
+        fetch('/example_script')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("output").innerHTML = "<p>" + data.message + "</p><p>Value: " + data.value + "</p>";
+        });
+    }
+</script>
+
+</body>
+</html>
